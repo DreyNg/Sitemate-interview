@@ -1,4 +1,3 @@
-// server.js
 const express = require("express");
 const bodyParser = require("body-parser");
 
@@ -43,6 +42,10 @@ app.delete("/api/issues/:id", (req, res) => {
     res.send(`Issue with ID ${id} deleted.`);
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+module.exports = app;
+
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
+}
